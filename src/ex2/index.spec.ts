@@ -24,4 +24,11 @@ describe('Tests de la fonction submitOrder', () => {
     expect(emailModule.sendOrderEmail).not.toHaveBeenCalled();
   });
 
+  it('devrait appeler sendOrderEmail avec le bon identifiant de commande', () => {
+    const order: Order = { id: '456', isSubmitted: false };
+
+    submitOrder(order);
+    expect(emailModule.sendOrderEmail).toHaveBeenCalledWith('456');
+  });
+
 });
