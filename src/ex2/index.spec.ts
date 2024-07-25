@@ -16,5 +16,12 @@ describe('Tests de la fonction submitOrder', () => {
     expect(emailModule.sendOrderEmail).toHaveBeenCalledTimes(1);
     expect(emailModule.sendOrderEmail).toHaveBeenCalledWith('123');
   });
-  
+
+  it('devrait émettre une erreur si la commande est déjà soumise', () => {
+    const order: Order = { id: '123', isSubmitted: true };
+
+    expect(() => submitOrder(order)).toThrow('La commande a déjà été soumise');
+    expect(emailModule.sendOrderEmail).not.toHaveBeenCalled();
+  });
+
 });
