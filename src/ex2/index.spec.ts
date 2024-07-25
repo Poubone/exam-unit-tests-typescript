@@ -31,4 +31,11 @@ describe('Tests de la fonction submitOrder', () => {
     expect(emailModule.sendOrderEmail).toHaveBeenCalledWith('456');
   });
 
+  it('devrait retourner la commande mise à jour', () => {
+    const order: Order = { id: '789', isSubmitted: false };
+    const updatedOrder = submitOrder(order);
+    
+    expect(updatedOrder).toEqual({ id: '789', isSubmitted: true });
+  });
+
 });
