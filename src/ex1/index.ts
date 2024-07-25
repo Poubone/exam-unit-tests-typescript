@@ -4,8 +4,7 @@ export type DateRange = {
 };
 
 export function isRangeAvailable(
-  requestedRange: DateRange,
-  availableRange: DateRange
+  requestedStart: Date, requestedEnd: Date, availableStart: Date, availableEnd: Date
 ): boolean {
-  return false;
+  return requestedStart >= availableStart && requestedEnd <= availableEnd;
 }
