@@ -3,8 +3,9 @@ export type DateRange = {
   endDate: Date;
 };
 
-export function isRangeAvailable( // comme j'ai eu des problèmes d'imports de DateRange, j'ai décidé de remplacer les objets par des paramètres simples afin de continuer 
-  requestedStart: Date, requestedEnd: Date, availableStart: Date, availableEnd: Date
+export function isRangeAvailable(
+  requestedRange: DateRange,
+  availableRange: DateRange
 ): boolean {
-  return requestedStart >= availableStart && requestedEnd <= availableEnd;
+  return requestedRange.startDate >= availableRange.startDate && requestedRange.endDate <= availableRange.endDate;
 }
