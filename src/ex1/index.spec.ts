@@ -33,8 +33,14 @@ describe('isRangeAvailable', () => {
     expect(isRangeAvailable(debutDemandee, finDemandee, debutDisponible, finDisponible)).toBe(false);
   });
 
-
-
+  it('devrait retourner vrai si la plage demandée correspond exactement à la plage disponible', () => {
+    const debutDisponible = new Date('2023-01-01');
+    const finDisponible = new Date('2023-12-31');
+    const debutDemandee = new Date('2023-01-01');
+    const finDemandee = new Date('2023-12-31');
+    expect(isRangeAvailable(debutDemandee, finDemandee, debutDisponible, finDisponible)).toBe(true);
+  });
+  
 });
 
 
